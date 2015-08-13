@@ -1,0 +1,54 @@
+<?php
+// ----------------------------------------------------------------------------------------
+// *** Simplevault Settings
+// ----------------------------------------------------------------------------------------
+
+// date format string as used by php function 'date'
+//$dateformat = 'm.d.y G:i';    // "09.19.07 15:44"
+//$dateformat = 'M jS Y g:ia';  // "Sep 19th 2007 3:44pm"
+//$dateformat = 'd-M-Y G:i';    // "09-Sep-2007 15:44"
+$dateformat = 'd-M-Y';          // "09-Sep-2007"
+date_default_timezone_set('Europe/Zurich');
+
+
+// Checks if the pass phrase that was entered to encode an entry has already
+// been used to encode other entries. Depending on the usage scenario a re-used
+// pass phrase may be wanted or unwanted. 
+// 1 to enable check, 0 to disable check.
+$checkexistingpf = 1;
+
+// When an incorrect passphrase is entered, hang the script for this many seconds.
+// A small delay here greatly reduces the effectiveness of a brute force attack
+$wrongpfdelay = 2;
+
+// If the visitor enters the wrong passphrase too many times, an error will be logged
+// in the webserver's logfile about the failure and the visitor will be sternly warned.
+// Set this to 0 to disable this feature entirely.
+$wrongpfalertthreshold = 10;
+
+// Restictions to be applied for a pass phrase when an entry is saved.
+// 0: No restrictions. Any entry can be saved with any pass phrase
+// a: An entry can only be saved with a pass phrase that has been used to encode
+//    all other entries. All entries will have the same pass phrase.
+// c: An entry can only be saved with a pass phrase that has been used to encode
+//    all other entries of the same category. All entries in a category will have the same 
+//    pass phrase. 
+$forcesamepf = 'c';
+
+// Place where the vault file is stored. 
+//
+// IMPORTANT: This should be a location that is not web readable. 
+//
+// If you are using shared hosting, ensure that the subdirectory you store the vault in is
+// private or password protected using your web host's control panel.
+$vaultfname  = "/var/lib/simplevault/simplevault.txt";  // good location for a not web readable vault file 
+//$vaultfname  = "vault/simplevault.txt";  // possible location for a web readable vault file (this is less secure)
+
+
+// Suppress warnings about unsecure non-SSL HTTP connections. Normally SimpleVault will
+// put a warning up if the connection is not encrypted. You can silence this warning by
+// setting this field to "1"
+$suppresshttpswarning = "0";
+
+
+?>

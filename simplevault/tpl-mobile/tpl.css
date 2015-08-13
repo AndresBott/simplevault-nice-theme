@@ -1,0 +1,33 @@
+th[scope="row"] {
+	text-align: right;
+	padding-right: 10px;
+}
+*.warning{
+	font-weight: bold;
+	color: #990806;
+	background-color: #ff7b7a;
+	border: 2px solid #990806;
+	margin-bottom: 0.5px;
+}
+*.info{
+	font-weight: bold;
+	color: #008f58;
+	background-color: #cefa8b;
+	border: 2px solid #008f58;
+	margin-bottom: 0.5px;
+}
+input.speclabel{
+	width: 25%;
+	display: inline;
+}
+input.speccontent{
+	width: 60%;	
+	display: inline;
+}
+input.passphrase{
+	background-color: #a4e0fc;
+}
+*.srch input{
+	margin-top: -0.5em;
+	margin-bottom: 1.3em;
+}

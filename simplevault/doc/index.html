@@ -1,0 +1,236 @@
+<html>
+<head>
+<title>SimpleVault Password Manager: Documentation</title>
+<link href='sv.css' rel='stylesheet' type='text/css' media='screen' />
+</head>
+<body>
+<img align='right' src='logo.png' border='0'/>
+<h1>SimpleVault - Password Manager</h1>
+
+<p>SimpleVault is a web-based tool that allows you to manage passwords or other secret information in a safe way. All secret information is encrypted using strong encryption algorithms. SimpleVault is particularly useful if you need to manage your secret data, or if you want to share secret information within a working group with trusted members. But it can also be used as a common tool for users who don't trust each other.</p>
+<p>This project is kindly hosted by sourceforge.net: <a href="http://sourceforge.net/projects/simplevault">http://sourceforge.net/projects/simplevault</a></p>
+
+<h4>Contents:</h4>
+<ul>
+<li><a href="#features">Features</a></li>
+<li><a href="#install" >Installation</a></li>
+<li><a href="#usage"   >Usage</a> (of web and iPhone interface)</li>
+<li><a href="#tech"    >Technical Information</a></li>
+</ul>
+<hr />
+
+<a name="features" ></a>
+<h2>Features</h2>
+<ul>
+
+  <li>Store passwords and other secret information with a web based tool</li>
+  <li>High level of security if installed on the local network. Good level of security if installed on a shared host on the internet.</li>
+  <li>There is no user account management (this is considered a feature, not a restriction).</li>
+  <li>It can be configured 
+    <ul>
+    <li>if all entires are encoded with a global passphrase, </li>
+    <li>if each category has it's own passphrase, or </li>
+    <li>if each entry has it's own passphrase.</li>
+    </ul>
+  <li>Very easy to use - very easy to install - very easy to understand!</li>
+  <li>No database is needed. All secret data is stored in a single text file, which is easy to back up and copy without security risk.</li>
+</ul>
+
+<h3>More Features</h3>
+<ul>
+  <li>Search for items matching a part of the category name, the title or subtitle.</li>
+  <li>The encrypted data block stores the fields: username, password, URL, notes, and one self-defined title and field content.</li>
+  <li>Bulk change passphrase: change the passphrase of all items having the same old passphrase.</li>
+  <li>Bulk decrypt items having the same passphrase.</li>
+  <li>Presentation (templates) is entirely separated from the business logic.</li>
+  <li>Special iPhone web gui is included (it currently only supports reading and decryption).</li>
+</ul>
+
+<h3>Try it online</h3>
+<p>An <a href="http://rolfb.ch/svdemo/index.php">online demo</a> is available. (Please don't misuse the demo. The vault is regularly purged.)</p>
+<h3>Why is SimpleVault free?</h3>
+<p>SimpleVault can be downloaded and used for free and it's source code is available under the <a href="http://www.gnu.org/copyleft/gpl.html">GPLv3 license</a>. I give it away for free mainly because I'm intensively using other open source products and I want to give back something useful to the community.</p>
+
+<a name="install" ></a>
+<h2>Installation and Configuration</h2>
+<p>Prerequisites are: PHP4 or PHP5 with the mcrypt library.</p>
+<p><a href='http://sourceforge.net/project/showfiles.php?group_id=205981'>Download</a> and unpack the SimpleVault package to the directory <tt>&lt;install-dir&gt;</tt>. By default, <tt>/var/lib/simplevault/simplevault.txt</tt> is used as the vault file where all encrypted and unencrypted data is stored. This file should be readable and writeable by the web server. A different vault file can be configured in <tt>svconfig.php</tt> in the variable <tt>$vaultfname</tt>.</p>
+<p>That's it. Go to <tt>&lt;your-host&gt;/&lt;install-dir&gt;/index.php</tt> and start creating entries.</p>
+<p>In the default installation, the vault file contains 2 categories and 4 entries for demonstration purposes. All entries are encrypted with the passphrase <i>toto</i>. You can delete the entries interactively, or by emptying the vault file.</p>
+<p>If you have problems please ask your questions in the <a href='http://sourceforge.net/forum/?group_id=205981'>support forum</a>.</p>
+
+<h3>Configuration</h3>
+<p>In the configuration file <tt>svconfig.php</tt> (can initially be copied from <tt>svconfig.php-dist</tt>) there is a configuration section below the lines <tt> *** Settings</tt>. 
+<ul>
+  <li>The setting for <tt>$dateformat</tt> specifies the date format.</li>
+  <li><tt>$forcesamepf</tt> defines if a global pass phrase is to be used, if each category has its own pass phrase or if each entry can have it's own pass phrase. </li>
+  <li><tt>$vaultfname</tt> specifies the location where the vault file is stored. This may be a location that is not web readable. However, if good pass phrases were chosen, it is no particular risk to put this file at a web readable location. All precious data is encrypted. </li>
+</ul>
+</p>
+
+<h3>Updating an Existing Installation</h3>
+<p>Simply replace the files <tt>index.php</tt>, <tt>sv.js</tt>, <tt>img/*</tt> and <tt>tpl-*</tt> with the new files from the distribution. Check <tt>svconfig.php-dist</tt> if there are new configuration parameters.</p>
+
+
+<a name="usage" ></a>
+<h2>Usage</h2>
+<h3>Quickstart</h3>
+<ul>
+<li>If you go to the SimpleVault for the first you will see a mostly empty screen with an empty categroy list. In the screenshot below, however, two categories have already been created. 
+    <p><img src="screen-start.png" class='screenshot'/></p></li>
+<li>Start with creating a new item: Define at least the category and a title for the new item. Notice that only the fields in the red box will be encrypted. Finally, set a <a href="http://www.lockdown.co.uk/?pg=password_guide">good password</a> and hit the create button.
+    <p><img src="screen-create.png" class='screenshot'/></p>
+    <p>When the item has been created, a short message is displayed. The create dialog doesn't ask you to type in the passphrase twice. Therefore, in order to make sure that you typed in the correct passphrase, it is recommended to decrypt your new item right after it has been created.</p>
+    <p><img src="screen-itemcreated.png" class='screenshot'/></p>
+    </li>
+<li>If you have created an item with a new category, the category is automatically created and it will be shown in the top navigation bar. In the example below it's the category <i>Home Servers</i>
+    <p><img src="screen-browse.png" class='screenshot'/></p></li>
+<li>Each item can be encrypted with it's own passphrase.</li>
+<li>To decrypt an item choose its category and the choose the decrypt link <img src='decrypt.png' /> of the item.
+    <p><img src="screen-decrypted.png" class='screenshot'/></p></li>
+<li><b>Note</b>: if you forget the passphrase of an item, there is absolutely no way to decrypt it.</li>
+</ul>
+<p>If you have questions please ask them in the <a href='http://sourceforge.net/forum/?group_id=205981'>support forum</a>.</p>
+
+<h3>iPhone Interface</h3>
+
+<p>The iPhone interface currently only supports browsing, reading and decrypting  items. Editing and creating new items will be added in a future version.</p>
+
+<img src="iphone-browse.png" width="198" height="318" />
+<img src="iphone-decrypt.png" width="198" height="318" />
+<img src="iphone-decrypted.png" width="198" height="318" />
+
+<a name="tech" ></a>
+<h2>Technical Information</h2>
+<h3>Security</h3>
+<p>This software has not been designed by a security specialist! SimpleVault is a best-effort approach with common sense security principles in mind. For example, in all input fields scripting tags are automatically filtered or escaped in order to prevent from cross site scripting attacks. But for a really serious application you may prefer one of the bullet proof commercial applications that are available on the market.</p>
+<p>The most important functionality of SimpleVault is to encrypt all secret data that has to be stored. The encription uses strong encryption algorithms, and if a good password is used, it is virtually impossible to decrypt the data without knowing the password. This means that even if the vault file is stolen, the secret data is safe. Actually, the vault file could be made publicly accessible without any risk.</p>
+<p>However, during the process of using SimpleVault, the secret data is unencrypted at certain times and locations. The red boxes in the table below indicate unencrypted secret data. </p>
+
+<table border="1" bordercolor="#666666" cellpadding="3" cellspacing="0">
+    <tbody>
+    <tr>
+      <td>
+        <br/>
+      </td>
+      <td>
+        screen/keyboard<br/>
+      </td>
+      <td>
+        browser<br/>
+      </td>
+      <td>
+        network<br/>
+      </td>
+      <td>
+        web server<br/>
+      </td>
+      <td>
+        php script<br/>
+      </td>
+      <td>
+        filesystem<br/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        http<br/>
+      </td>
+      <td bgcolor="#cc0000">
+        <br/>
+      </td>
+      <td bgcolor="#cc0000">
+        <br/>
+      </td>
+      <td bgcolor="#cc0000">
+        <br/>
+      </td>
+      <td bgcolor="#cc0000">
+        <br/>
+      </td>
+      <td bgcolor="#cc0000">
+        <br/>
+      </td>
+      <td bgcolor="#3333ff">
+        <br/>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        https<br/>
+      </td>
+      <td bgcolor="#cc0000">
+        <br/>
+      </td>
+      <td bgcolor="#3333ff">
+        <br/>
+      </td>
+      <td bgcolor="#3333ff">
+        <br/>
+      </td>
+      <td bgcolor="#3333ff">
+        <br/>
+      </td>
+      <td bgcolor="#cc0000">
+        <br/>
+      </td>
+      <td bgcolor="#3333ff">
+        <br/>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+<p>One obvious consequence is, that SimpleVault should only be used over the https protocol. And yes, in our case we use SimpleVault only on our local network behind a completely isolating firewall. </p>
+
+<h3>Known Security Risks and Leaks</h3>
+<p>These are the known potential security risks with SimpleVault:
+<ul>
+<li>For the short moment the PHP script receives data to be encrypted and really encrypting it, the secret data is stored in the server's memory in clear text. Somebody who is capable of making memory dumps of the server is potentially capable of getting hold of the secret data.</li>
+</ul>
+There are probably more risks or leaks. Please report them in the <a href='http://sourceforge.net/forum/?group_id=205981'>forum</a>.
+</p>
+
+
+<h3>Implementation</h3>
+<p>All data is stored in one text file - the vault file. As an example you can have a look at the <a href="http://rolfb.ch/svdemo/vault/simplevault.txt">demo vault file</a> of the <a href="http://rolfb.ch/svdemo/index.php">online demo</a>. And this is the format of the vault file:</p>
+<ul>
+<li>the file only contains iso 8859-1 characters</li>
+<li>one entry (=record) per line</li>
+<li>an entry consists of exactly 10 tab separated fields (it contains exactly 9 vertical tabulators)
+   <ol>
+   <li>Category</li>
+   <li>Title</li>
+   <li>Subtitle</li>
+   <li>(reserved)</li>
+   <li>(reserved)</li>
+   <li>(reserved)</li>
+   <li>(reserved)</li>
+   <li>(reserved)</li>
+   <li>(reserved)</li>
+   <li>Encrypted secret data block</li>
+   </ol>
+   The fields <i>Category - Title - Subtitle</i> combined together build a unique key for an entry.
+</li>
+<li>the secret data block is a iso 8859-1 string which has been encrypted and html encoded. The string contains the following 10 single line fields which are separated by new line caracters (the 11th field is a multi-line field). Hence, it contains at least 10 new line characters:
+   <ol>
+   <li>a constant keyword (the preamble)</li>
+   <li>Login</li>
+   <li>URL</li>
+   <li>Password</li>
+   <li>(reserved)</li>
+   <li>(reserved)</li>
+   <li>(reserved)</li>
+   <li>(reserved)</li>
+   <li>self-defined title</li>
+   <li>self-defined content</li>
+   <li>notes, which is a multi-line text field</li>
+   </ol>
+</li>
+</ul>
+
+<h3>Credits</h3>
+<p>Various People have contributed to SimpleVault. Most of them are listed the comments in index.php.</p>
+
+<p><br/><br/><br/>Rolf Brugger, Dec 2011<br/></p>
+</body>
+</html>

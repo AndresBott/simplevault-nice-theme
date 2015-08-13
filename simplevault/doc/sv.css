@@ -1,0 +1,68 @@
+body {
+	background-color: #fff;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 0.8em;
+	line-height: 1.4em;
+	padding-left : 4px;
+	padding-top : 10px;
+	max-width: 55em; 
+	margin: auto;
+}
+/* Links general */
+a   {
+    color: rgb(38, 93, 128);
+    text-decoration: underline;
+}
+a:visited {
+	color: rgb(38, 93, 128);
+	text-decoration: underline;
+	 }
+a:hover   {	
+	text-decoration: underline;
+   color: black;
+}
+/* Typo general */
+h2 {
+	margin-top: 2em;
+}
+h1, h2, h3, h4 {
+	color: #777;
+	}
+small {
+	font-size: 0.9em;
+	}
+
+td.mc{ /* middle centered */
+	text-align : center;
+	vertical-align : middle;
+}
+td.mr{/* middle right */
+	text-align : right;
+	vertical-align : middle;
+}
+td.mr{/* top right */
+	text-align : right;
+	vertical-align : top;
+}
+
+
+table{
+	font-size: 1em;
+}
+
+span.warning{
+	border: 1px #f0f solid;
+  padding: 4px;
+	background-color : #f7f;
+}
+span.info{
+	border: 1px #333 solid;
+  padding: 4px;
+	background-color : #bfb;
+}
+
+
+
+img.screenshot{
+	border: 3px #aaa solid;
+}
