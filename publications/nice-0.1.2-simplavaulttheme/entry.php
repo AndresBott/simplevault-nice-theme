@@ -11,10 +11,10 @@
 		
 		<div class="tool">
 			<form name="enterpf" action="index.php" method="post"  autocomplete="off">
-			  <input name="cat" type="hidden" value="<?php echo escape_for_html($cat);  ?>"/>
-			  <input name="t1"  type="hidden" value="<?php echo escape_for_html($t1);   ?>"/>
-			  <input name="t2"  type="hidden" value="<?php echo escape_for_html($t2);   ?>"/>
-			  <input name="pf"  type="hidden" value="<?php echo escape_for_html($pf);   ?>"/>
+			  <input name="cat" type="hidden" value="<?php echo urlencode($cat);  ?>"/>
+			  <input name="t1"  type="hidden" value="<?php echo urlencode($t1);   ?>"/>
+			  <input name="t2"  type="hidden" value="<?php echo urlencode($t2);   ?>"/>
+			  <input name="pf"  type="hidden" value="<?php echo urlencode($pf);   ?>"/>
 			  
 			  
 
