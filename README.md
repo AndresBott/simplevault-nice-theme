@@ -7,7 +7,7 @@ and added a new nicer theme
 ![alt tag](https://raw.githubusercontent.com/AndresBott/simplevault-nice-theme/nice-theme-devel/preview2_new_enty.jpg)
 ###ABOUT
 =========
-Author: Andres contactn [a] andresbott.com
+Author: Andres contact [a] andresbott.com
 
 License: GPL3
 
